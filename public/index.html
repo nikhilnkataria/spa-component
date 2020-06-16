@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Spa Component</title>
+  </head>
+  <body>
+    <div>
+      User Types
+      <button class="entity-type-selector" appId="ipds" userType="customer">Customer</button>
+      <button class="entity-type-selector" appId="ipds" userType="agent">Agent</button>
+      <button class="entity-type-selector" appId="ipds" userType="employee">Employee</button>
+    </div>
+    
+    <spa-component appid="ipds" usertype="customer"></spa-component> 
+
+    <script>
+      const btnArr = document.querySelectorAll('.entity-type-selector');
+      console.info(btnArr)
+      btnArr.forEach((btn) => {
+        addEvent(btn)
+      })
+
+      function addEvent(btn) {
+        btn.addEventListener('click', (e) => {
+          const userType = e.target.getAttribute('userType')
+          const appId = e.target.getAttribute('appId')
+          setComponentVal(appId, userType)
+        })
+      }
+
+      function setComponentVal(appId, userType) {
+        const webComponent = document.querySelector('spa-component');
+        webComponent.setAttribute('appId', appId)
+        webComponent.setAttribute('userType', userType)
+      }
+
+      const component = document.querySelector('spa-component');
+        component.addEventListener('my-event', (e) => {
+          console.group('console from host')
+          console.info('Event name: my-event') // 42
+          console.log('Event string: ' + e.detail) // 42
+          console.groupEnd()
+      });
+    </script>
+    
+  </body>
+</html>
