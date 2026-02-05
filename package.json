@@ -29,11 +29,11 @@
     "test": "direflow-scripts test"
   },
   "dependencies": {
-    "direflow-component": "3.4.15",
+    "direflow-component": "3.5.5",
     "direflow-scripts": "3.4.15",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-scripts": "3.4.1",
+    "react-scripts": "5.0.1",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
